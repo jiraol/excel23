@@ -51,19 +51,19 @@ excel 转 java、c#、lua 三种数据表形式
   
 <p>
   Java:<br>
-  LittleEndianDataInputStream dos = new LittleEndianDataInputStream(new FileInputStream("数据表文件路径"));
+  LittleEndianDataInputStream dos = new LittleEndianDataInputStream(new FileInputStream("数据表文件路径"));<br>
   SAProtoDecodeTemp.getInstance().parsing(dos);//反序列化表数据结构<br>
-  ArrayList<ExTest> testList = ExTest.getList();
-	System.out.println(testList.get(0).getId());
-	Map<Integer, ExTest> testMap = ExTest.getMap();
-	System.out.println(testMap.get(100).getId());
+  ArrayList<ExTest> testList = ExTest.getList();<br>
+  System.out.println(testList.get(0).getId());<br>
+  Map<Integer, ExTest> testMap = ExTest.getMap();<br>
+  System.out.println(testMap.get(100).getId());<br>
 </p>
 <p>
 Lua:<br>  
-  SAProtoDecode:parsing("数据表文件路径")
-  print(SAProtoDecode.STCharacter.list[0].Id)
-  print(SAProtoDecode.STCharacter.map[100].Id)
+  SAProtoDecode:parsing("数据表文件路径")<br>
+  print(SAProtoDecode.STCharacter.list[0].Id)<br>
+  print(SAProtoDecode.STCharacter.map[100].Id)<br>
 </p>
-
+<br>
 8.有问题请加QQ群 589160967
     
