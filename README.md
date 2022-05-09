@@ -33,3 +33,37 @@ excel 转 java、c#、lua 三种数据表形式
     导出：按照表格部分形式数据导出excel数据，输出路径为 "config" 中的每个路径类型<br>
     清空：清除当前表格部分<br>
     
+6.数据表格式<br>
+    6.1.第一列必须为Id<br>
+    6.2.支持 int、float、String、boolean、Array 五种数组类型<br>
+    6.3.不能使用 int、float、array、string、list、map 作为列名<br>
+    
+7.使用(以测试数据表 tables/test.xml 为例)<br>
+<p>
+  C#:<br>
+  byte[] bytes = ...;//读取表数据文件<br>
+  org.jiira.protobuf.SAProtoDecode.getInstance().parsing(bytes);//反序列化表数据结构<br>
+  List<ExTest> testList = ExTest.getList();<br>
+  print(testList[0].Id);<br>
+  Dictionary<int, ExTest> testMap = ExTest.getMap();<br>
+  print(testMap[100].Id);<br>
+</p>
+  
+<p>
+  Java:<br>
+  LittleEndianDataInputStream dos = new LittleEndianDataInputStream(new FileInputStream("数据表文件路径"));
+  SAProtoDecodeTemp.getInstance().parsing(dos);//反序列化表数据结构<br>
+  ArrayList<ExTest> testList = ExTest.getList();
+	System.out.println(testList.get(0).getId());
+	Map<Integer, ExTest> testMap = ExTest.getMap();
+	System.out.println(testMap.get(100).getId());
+</p>
+<p>
+Lua:<br>  
+  SAProtoDecode:parsing("数据表文件路径")
+  print(SAProtoDecode.STCharacter.list[0].Id)
+  print(SAProtoDecode.STCharacter.map[100].Id)
+</p>
+
+8.有问题请加QQ群 589160967
+    
